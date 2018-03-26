@@ -1,0 +1,10 @@
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'PROJECT', 'Qualitative Tasks Implementation', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'PROJECT', 'Ideas, Proposals, Demos, Prototypes', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'S/W Certification', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Patent Generation', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Open Source Contribution', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Articles/Publications', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Participation in Confenrence', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Passing Educational Courses', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Outside Certification (CISCO, IEEE, Oracle, etc.)', 0.0);
+insert into activities(id, type, description, weight) values (nextval('public.activities_id_seq'), 'ADDITIONAL', 'Other Activity', 0.0);
