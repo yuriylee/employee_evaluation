@@ -1,0 +1,83 @@
+<html>
+<head>
+  <script src="cytoscape.js"></script>
+  </head>
+<title></title>
+<body>
+<style>
+    #cy {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+</style>
+<script>
+var json = {
+	"entities":["FBI", "Elon Musk", "Apple", "John Smith", "Samsung Electronics", "Android O", "CVE-234-5432"],
+	"connections":[]
+}
+function full_graph(entities_number){
+	var connections = [];
+	for(var i = 0; i < entities_number; i++){
+		for(var j = 0; j < entities_number; j++){
+			if(i!=j){
+					connections.push([i,j]);
+				}
+		}
+	}
+	return connections;
+}
+document.addEventListener('DOMContentLoaded', function() {
+console.log('load...');
+var cy = cytoscape({
+	container: document.getElementById('cy'),
+	style:[
+		{
+			selector:'node',
+			style:{
+				shape:'circle',
+				'background-color':'aqua',
+				label: 'data(name)'
+			}
+		},
+		{
+			selector:'edge',
+			style:{
+				width:1,
+				'line-color':'grey'
+			}
+		}
+	]
+
+});
+for(var i = 0, len = json.entities.length; i < len; i++){
+	cy.add({
+		data:{id:i, name:json.entities[i]}
+	})
+}
+if(json.connections.length == 0){
+	json.connections = full_graph(json.entities.length);
+}
+for(var i = 0, len = json.connections.length; i < len; i++){
+	console.log('edge '+i)
+	cy.add({
+		data:{
+			id:'edge_'+i,
+			source:json.connections[i][0],
+			target:json.connections[i][1]
+		}
+	})
+}
+
+ 
+
+cy.layout({
+    name: 'circle'
+}).run();
+});
+</script>
+ <div id="cy"></div>
+</body>
+</html>
